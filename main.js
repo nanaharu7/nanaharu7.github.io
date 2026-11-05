@@ -37,6 +37,14 @@ const WORKS = {
   },
 };
 
+// メールアドレスは収集ボットに拾われないよう、逆順の断片から組み立てる
+const mailLink = document.querySelector(".js-mail");
+if (mailLink) {
+  const address = ["moc.liamg", "skrow.urahanan"].map((s) => [...s].reverse().join("")).reverse().join("@");
+  mailLink.href = `mailto:${address}`;
+  mailLink.querySelector("span").textContent = address;
+}
+
 const dialog = document.getElementById("detail");
 const $ = (selector) => dialog.querySelector(selector);
 
