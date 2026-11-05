@@ -1,0 +1,420 @@
+:root {
+  --bg: #ececec;
+  --page: #f4f4f4;
+  --surface: #ffffff;
+  --text: #1c1c1c;
+  --muted: #8a8a8a;
+  --thumb: #dcdcdc;
+  --display: "Jost", "Noto Sans JP", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f0f;
+    --page: #161616;
+    --surface: #202020;
+    --text: #ececec;
+    --muted: #8f8f8f;
+    --thumb: #2a2a2a;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  max-width: 1120px;
+  margin: 24px auto;
+  padding: 32px 64px 0;
+  background: var(--page);
+  border-radius: 20px;
+}
+
+/* ヘッダー */
+.top {
+  position: sticky;
+  top: 16px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pill {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--surface);
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.06);
+}
+
+.pill a {
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+
+.pill a:hover {
+  background: var(--page);
+}
+
+.mail {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--text);
+  color: var(--page);
+}
+
+/* ヒーロー */
+.hero {
+  padding: 96px 0 104px;
+}
+
+.hero-name {
+  margin: 0 0 40px;
+  font-family: var(--display);
+  font-size: 24px;
+  letter-spacing: 0.12em;
+}
+
+.hero-name span {
+  margin-left: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.catch {
+  margin: 0;
+  font-size: clamp(28px, 4.6vw, 52px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.hero-lead {
+  margin: 32px 0 0;
+  color: var(--muted);
+}
+
+.pc-only {
+  display: inline;
+}
+
+/* セクション */
+.section {
+  padding: 48px 0 80px;
+}
+
+.heading {
+  margin: 0 0 40px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+.heading span {
+  display: block;
+  margin-top: 8px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.sub {
+  margin: 40px 0 16px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+.sub:first-child {
+  margin-top: 0;
+}
+
+/* 作品（画像を使わず、番号と文字で並べる） */
+.works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--text);
+}
+
+.works li {
+  border-bottom: 1px solid var(--thumb);
+}
+
+.work {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, 1.6fr) 160px;
+  gap: 24px;
+  align-items: baseline;
+  width: 100%;
+  padding: 28px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: padding 0.3s;
+}
+
+.work:hover {
+  padding-left: 12px;
+}
+
+.no {
+  font-family: var(--display);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+.summary {
+  color: var(--muted);
+}
+
+.work:hover .summary {
+  color: var(--text);
+}
+
+.kind {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-align: right;
+}
+
+.kind em {
+  display: block;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* プロフィール */
+.profile {
+  max-width: 760px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--text);
+  color: var(--page);
+  font-size: 15px;
+}
+
+.name .en {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.rows li,
+.rows a {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  padding: 12px 20px;
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.rows.links li {
+  padding: 0;
+  background: none;
+}
+
+.rows b {
+  font-weight: 500;
+}
+
+.rows.links b {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.rows span {
+  color: var(--muted);
+}
+
+.rows.links a:hover span {
+  color: var(--text);
+}
+
+.footer {
+  padding: 32px 0;
+  font-family: var(--display);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* 作品の詳細 */
+.detail {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100% - 48px);
+  padding: 24px 24px 72px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.detail::backdrop {
+  background: rgb(0 0 0 / 0.35);
+}
+
+.detail-kind {
+  margin: 8px 0 0;
+  font-family: var(--display);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.detail-title {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.detail-stack {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.detail-foot {
+  font-family: var(--display);
+}
+
+.detail-foot a {
+  text-underline-offset: 4px;
+}
+
+.close {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--surface);
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .page {
+    margin: 0;
+    padding: 20px 16px 0;
+    border-radius: 0;
+  }
+
+  .hero {
+    padding: 64px 0 72px;
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  .work {
+    grid-template-columns: 40px 1fr;
+    gap: 4px 12px;
+    padding: 22px 0;
+  }
+
+  .summary,
+  .kind {
+    grid-column: 2;
+  }
+
+  .kind {
+    text-align: left;
+  }
+
+  .kind em {
+    display: inline;
+    margin-left: 8px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .rows li,
+  .rows a {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .heading {
+    font-size: 40px;
+  }
+}
