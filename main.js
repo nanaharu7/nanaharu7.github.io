@@ -41,13 +41,38 @@ const WORKS = {
   },
 };
 
-// メールアドレスは収集ボットに拾われないよう、逆順の断片から組み立てる
-const mailLink = document.querySelector(".js-mail");
-if (mailLink) {
-  const address = ["moc.liamg", "skrow.urahanan"].map((s) => [...s].reverse().join("")).reverse().join("@");
-  mailLink.href = `mailto:${address}`;
-  mailLink.querySelector("span").textContent = address;
-}
+// お問い合わせフォームは、ページを移動せずに送信して結果を表示する
+const form = document.querySelector(".contact-form");
+const formStatus = form.querySelector(".form-status");
+const submitButton = form.querySelector("button[type=submit]");
+const showStatus = (text, isError) => {
+  formStatus.textContent = text;
+  formStatus.classList.toggle("error", isError);
+};
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  submitButton.disabled = true;
+  showStatus("送信しています…", false);
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => null);
+      const detail = data?.errors?.map((err) => err.message).join(" / ");
+      throw new Error(detail || `HTTP ${res.status}`);
+    }
+    form.reset();
+    showStatus("送信しました。内容を確認して、メールでご返信します。", false);
+  } catch (err) {
+    console.error("お問い合わせの送信に失敗しました", err);
+    showStatus(`送信できませんでした（${err.message}）。時間をおいて、もう一度お試しください。`, true);
+  } finally {
+    submitButton.disabled = false;
+  }
+});
 
 // スクロールしたらヘッダーに背景をつける
 const header = document.querySelector(".top");

@@ -108,10 +108,19 @@
 
     <section id="contact" class="section">
       <h2 class="heading">Contact<span>お問い合わせ</span></h2>
-      <p class="contact-lead">ご依頼・ご相談は、メールかXのDMでお問い合わせください。</p>
+      <p class="contact-lead">ご依頼・ご相談は、こちらのフォームからお送りください。</p>
+      <!-- 送信先はFormspree。JavaScriptが使えないときは、そのままFormspreeのページに送られる -->
+      <form class="contact-form" action="https://formspree.io/f/mvkkylqp" method="POST">
+        <label class="field"><span>お名前<em>必須</em></span><input name="name" required autocomplete="name"></label>
+        <label class="field"><span>メールアドレス<em>必須</em></span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span>件名<em>必須</em></span><input name="_subject" required placeholder="例：〇〇の制作について"></label>
+        <label class="field"><span>内容<em>必須</em></span><textarea name="message" rows="6" required></textarea></label>
+        <label class="field"><span>希望の時期<em class="optional">任意</em></span><input name="timeline" placeholder="例：12月中旬まで"></label>
+        <p class="form-note">いただいた情報は、お問い合わせへの返信にのみ使います。</p>
+        <button class="button" type="submit">送信する</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
       <ul class="links">
-        <!-- 収集ボット対策として、アドレスはHTMLに書かずmain.jsで組み立てる -->
-        <li><a class="js-mail" href="#contact"><b>Mail</b><span>（表示にはJavaScriptが必要です）</span></a></li>
         <li><a href="https://x.com/_nanaharu7"><b>X</b><span>@_nanaharu7</span></a></li>
         <li><a href="https://github.com/nanaharu7"><b>GitHub</b><span>nanaharu7</span></a></li>
       </ul>
