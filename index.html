@@ -1,10 +1,14 @@
+---
+# 文章は _data/content.yml にまとめている。ここではレイアウトだけを扱う
+---
+{%- assign c = site.data.content -%}
 <!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nanase Haru | 七瀬 陽</title>
-  <meta name="description" content="誰かと一緒に何かをするとき、その場を支えるツールを作っています。">
+  <title>{{ c.hero.name_en }} | {{ c.hero.name_ja }}</title>
+  <meta name="description" content="{{ c.hero.lead | last | escape }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,9 +30,9 @@
   <main class="container sheet">
     <section class="hero">
       <div class="hero-inner">
-        <p class="hero-name">Nanase Haru<span>七瀬 陽</span></p>
-        <h1 class="catch">「一緒にやる」を、<br>支える道具をつくる。</h1>
-        <p class="hero-lead">チームでの制作、みんなで管理する記録、一緒に観る時間。<br class="pc-only">誰かと一緒に何かをするとき、その場を支えるツールを作っています。</p>
+        <p class="hero-name">{{ c.hero.name_en }}<span>{{ c.hero.name_ja }}</span></p>
+        <h1 class="catch">{% for line in c.hero.catch %}{{ line | escape }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</h1>
+        <p class="hero-lead">{% for line in c.hero.lead %}{{ line | escape }}{% unless forloop.last %}<br class="pc-only">{% endunless %}{% endfor %}</p>
         <div class="cta">
           <a class="button" href="#works">Works を見る</a>
           <a class="button outline" href="#contact">お問い合わせ</a>
@@ -39,51 +43,21 @@
     <section id="works" class="section">
       <h2 class="heading">Works<span>作品</span></h2>
       <ul class="works">
-        <li><button class="work" data-work="remind-bot">
-          <span class="thumb"><img src="img/remind-bot.svg" alt="" loading="lazy"></span>
-          <span class="work-body">
-            <span class="no">01</span>
-            <span class="kind">Discord Bot</span>
-            <span class="title">remind-bot</span>
-            <span class="summary">チームのタスクの遅れを、早めに共有するDiscordボット</span>
-          </span>
-        </button></li>
-        <li><button class="work" data-work="animal-colony-manager">
+        {%- for work in c.works %}
+        <li><button class="work" data-work="{{ work.id }}">
+          {%- if work.image %}
+          <span class="thumb"><img src="{{ work.image }}" alt="" loading="lazy"></span>
+          {%- else %}
           <span class="thumb empty">Image coming soon</span>
+          {%- endif %}
           <span class="work-body">
-            <span class="no">02</span>
-            <span class="kind">Web App</span>
-            <span class="title">animal-colony-manager</span>
-            <span class="summary">飼育ケージを複数人で記録・管理するWebアプリ</span>
+            <span class="no">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+            <span class="kind">{{ work.kind | escape }}{% if work.status %}<em>{{ work.status | escape }}</em>{% endif %}</span>
+            <span class="title">{{ work.title | escape }}</span>
+            <span class="summary">{{ work.summary | escape }}</span>
           </span>
         </button></li>
-        <li><button class="work" data-work="anchorview">
-          <span class="thumb"><img src="img/anchorview.svg" alt="" loading="lazy"></span>
-          <span class="work-body">
-            <span class="no">03</span>
-            <span class="kind">VR Tool</span>
-            <span class="title">AnchorView</span>
-            <span class="summary">VRChatで、それぞれの映像を同じ場所に置いて一緒に観る</span>
-          </span>
-        </button></li>
-        <li><button class="work" data-work="sodefuri">
-          <span class="thumb empty">Image coming soon</span>
-          <span class="work-body">
-            <span class="no">04</span>
-            <span class="kind">iOS App<em>In development</em></span>
-            <span class="title">sodefuri</span>
-            <span class="summary">すれ違った人と、おすすめの本を交換する</span>
-          </span>
-        </button></li>
-        <li><button class="work" data-work="shiori">
-          <span class="thumb empty">Image coming soon</span>
-          <span class="work-body">
-            <span class="no">05</span>
-            <span class="kind">iOS App<em>In development</em></span>
-            <span class="title">shiori</span>
-            <span class="summary">旅程をタイムラインで見て、地図や乗換案内にすぐ移れる</span>
-          </span>
-        </button></li>
+        {%- endfor %}
       </ul>
     </section>
 
@@ -93,26 +67,27 @@
         <!-- 仮アイコン。正式なものが決まったら img/icon.svg を差し替える -->
         <div class="frame"><img class="icon" src="img/icon.svg" alt=""></div>
         <div class="about">
-          <p class="name">七瀬 陽<span class="en">Nanase Haru</span></p>
-          <p>大学で神経科学を研究しながら、身近な場で必要になったものを作ってきました。使う人と話して運用に合わせること、プログラミングに詳しくない人でも迷わず使えることを大切にしています。</p>
+          <p class="name">{{ c.profile.name }}<span class="en">{{ c.profile.name_en }}</span></p>
+          <p>{{ c.profile.about | escape }}</p>
           <ul class="sns">
-            <li><a href="https://x.com/_nanaharu7">X<span>@_nanaharu7</span></a></li>
-            <li><a href="https://github.com/nanaharu7">GitHub<span>nanaharu7</span></a></li>
+            {%- for link in c.profile.sns %}
+            <li><a href="{{ link.url }}">{{ link.label | escape }}<span>{{ link.account | escape }}</span></a></li>
+            {%- endfor %}
           </ul>
         </div>
       </div>
 
       <h3 class="sub">Service</h3>
       <ul class="services">
-        <li><b>チームの進行を支える</b><span>タスクの期限や進捗を共有するDiscordボットなど</span></li>
-        <li><b>みんなで使う記録・管理の仕組み</b><span>複数人で記録を共有・管理するWebアプリの開発</span></li>
-        <li><b>一緒に過ごす場のためのツール</b><span>コミュニティの運営支援、VRChatのギミックや外部ツール</span></li>
+        {%- for service in c.services %}
+        <li><b>{{ service.title | escape }}</b><span>{{ service.text | escape }}</span></li>
+        {%- endfor %}
       </ul>
     </section>
 
     <section id="contact" class="section">
       <h2 class="heading">Contact<span>お問い合わせ</span></h2>
-      <p class="contact-lead">ご依頼・ご相談は、こちらのフォームからお送りください。</p>
+      <p class="contact-lead">{{ c.contact.lead | escape }}</p>
       <!-- 送信先はFormspree。JavaScriptが使えないときは、そのままFormspreeのページに送られる -->
       <form class="contact-form" action="https://formspree.io/f/mvkkylqp" method="POST">
         <label class="field"><span>お名前<em>必須</em></span><input name="name" required autocomplete="name"></label>
@@ -120,14 +95,14 @@
         <label class="field"><span>件名<em>必須</em></span><input name="_subject" required placeholder="例：〇〇の制作について"></label>
         <label class="field"><span>内容<em>必須</em></span><textarea name="message" rows="6" required></textarea></label>
         <label class="field"><span>希望の時期<em class="optional">任意</em></span><input name="timeline" placeholder="例：12月中旬まで"></label>
-        <p class="form-note">いただいた情報は、お問い合わせへの返信にのみ使います。</p>
+        <p class="form-note">{{ c.contact.note | escape }}</p>
         <button class="button" type="submit">送信する</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
-  <footer class="footer">© 2026 Nanase Haru</footer>
+  <footer class="footer">© {{ site.time | date: "%Y" }} {{ c.hero.name_en }}</footer>
 
   <dialog id="detail" class="detail">
     <img class="detail-image" alt="" hidden>
@@ -139,6 +114,8 @@
     <button class="close" type="button">× Close</button>
   </dialog>
 
+  <!-- 作品の詳細はデータファイルから書き出し、main.js で読む -->
+  <script id="works-data" type="application/json">{{ c.works | jsonify }}</script>
   <script src="main.js"></script>
 </body>
 </html>

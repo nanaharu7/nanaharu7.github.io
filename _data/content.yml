@@ -1,0 +1,104 @@
+# サイトに表示する文章をまとめたファイル。
+# ここを書き換えて保存すると、1〜2分でサイトに反映されます。
+#
+# 書き方のきまり
+# - 「項目名: 文章」の形で書く。コロン（:）の後ろには半角スペースを1つ入れる
+# - 先頭が @ の文章や、途中に「: 」（半角コロンと空白）を含む文章は "" で囲む
+# - 行頭の字下げ（半角スペース）はそろえる。タブは使わない
+# - 「- 」で始まる行は、一覧のひとつ分
+
+# ページ上部（ヒーロー）
+hero:
+  name_en: Nanase Haru
+  name_ja: 七瀬 陽
+  # キャッチコピー。1行ずつ書くと、その位置で改行される
+  catch:
+    - 「一緒にやる」を、
+    - 支える道具をつくる。
+  # 説明文。PCではこの区切りで改行し、スマホでは続けて表示する
+  lead:
+    - チームでの制作、みんなで管理する記録、一緒に観る時間。
+    - 誰かと一緒に何かをするとき、その場を支えるツールを作っています。
+
+# 作品。上から順に 01, 02, … と番号がつく
+# - id: 半角英数字の識別名（他の作品と重ならないもの）
+# - kind: 種類
+# - status: 開発中などの補足（なければ行ごと消す）
+# - summary: 一覧に出す短い説明
+# - text: 詳細を開いたときの説明
+# - stack: 使った技術
+# - image / image_alt: 画像のファイルと、その説明（なければ行ごと消す）
+# - link: GitHubなどのリンク（なければ note に書いた文字を出す）
+works:
+  - id: remind-bot
+    title: remind-bot
+    kind: Discord Bot
+    summary: チームのタスクの遅れを、早めに共有するDiscordボット
+    text: チームで分担したタスクの遅れを、進行管理の人が早めに把握するためのボット。期限が近づくと担当者にDMが届き、ボタンひとつで進捗を報告できます。
+    stack: TypeScript / Cloudflare Workers / D1
+    image: img/remind-bot.svg
+    image_alt: 担当者に届いたリマインドで「期限を調整したい」を押すと、進行管理の人にメンション付きで知らせが届く図
+    link: https://github.com/nanaharu7/remind-bot
+
+  - id: animal-colony-manager
+    title: animal-colony-manager
+    kind: Web App
+    summary: 飼育ケージを複数人で記録・管理するWebアプリ
+    text: 研究室のマウスの飼育ケージを、Googleスプレッドシートで管理するWebアプリ。交配から離乳までの記録、操作の取り消し、共用PCでの記入者の切り替えに対応しています。
+    stack: Google Apps Script
+    link: https://github.com/nanaharu7/animal-colony-manager
+
+  - id: anchorview
+    title: AnchorView
+    kind: VR Tool
+    summary: VRChatで、それぞれの映像を同じ場所に置いて一緒に観る
+    text: VRChatのワールドの決まった場所に、ブラウザで再生している映像を固定して表示するツール。参加者それぞれが自分の画面を同じ場所に置くことで、みんなで一緒に観られます。
+    stack: C# / OpenVR / UdonSharp
+    image: img/anchorview.svg
+    image_alt: 3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示されている図
+    note: Demo coming soon
+
+  - id: sodefuri
+    title: sodefuri
+    kind: iOS App
+    status: In development
+    summary: すれ違った人と、おすすめの本を交換する
+    text: すれ違った人と、おすすめの本を交換するアプリ。位置情報を細かく扱わずに「近くにいた人」を判定し、サーバー費用をほぼかけずに動く構成にしています。
+    stack: Flutter / Cloudflare Workers
+    note: In development
+
+  - id: shiori
+    title: shiori
+    kind: iOS App
+    status: In development
+    summary: 旅程をタイムラインで見て、地図や乗換案内にすぐ移れる
+    text: 旅程をタイムラインで見て、地図や乗換案内にすぐ移れるアプリ。旅程は公開の形式で書けるので、AIに作らせることもできます。データは端末とiCloudだけに置きます。
+    stack: Swift / iCloud
+    note: In development
+
+# プロフィール
+profile:
+  name: 七瀬 陽
+  name_en: Nanase Haru
+  about: 大学で神経科学を研究しながら、身近な場で必要になったものを作ってきました。使う人と話して運用に合わせること、プログラミングに詳しくない人でも迷わず使えることを大切にしています。
+  sns:
+    - label: X
+      account: "@_nanaharu7"
+      url: https://x.com/_nanaharu7
+    - label: GitHub
+      account: nanaharu7
+      url: https://github.com/nanaharu7
+
+# できること
+services:
+  - title: チームの進行を支える
+    text: タスクの期限や進捗を共有するDiscordボットなど
+  - title: みんなで使う記録・管理の仕組み
+    text: 複数人で記録を共有・管理するWebアプリの開発
+  - title: 一緒に過ごす場のためのツール
+    text: コミュニティの運営支援、VRChatのギミックや外部ツール
+
+# お問い合わせ
+contact:
+  lead: ご依頼・ご相談は、こちらのフォームからお送りください。
+  note: いただいた情報は、お問い合わせへの返信にのみ使います。

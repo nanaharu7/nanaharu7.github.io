@@ -1,45 +1,7 @@
-// 作品の詳細。一覧のボタンの data-work と対応させる
-const WORKS = {
-  "remind-bot": {
-    kind: "Discord Bot",
-    title: "remind-bot",
-    text: "チームで分担したタスクの遅れを、進行管理の人が早めに把握するためのボット。期限が近づくと担当者にDMが届き、ボタンひとつで進捗を報告できます。",
-    stack: "TypeScript / Cloudflare Workers / D1",
-    image: "img/remind-bot.svg",
-    imageAlt: "担当者に届いたリマインドで「期限を調整したい」を押すと、進行管理の人にメンション付きで知らせが届く図",
-    link: "https://github.com/nanaharu7/remind-bot",
-  },
-  "animal-colony-manager": {
-    kind: "Web App",
-    title: "animal-colony-manager",
-    text: "研究室のマウスの飼育ケージを、Googleスプレッドシートで管理するWebアプリ。交配から離乳までの記録、操作の取り消し、共用PCでの記入者の切り替えに対応しています。",
-    stack: "Google Apps Script",
-    link: "https://github.com/nanaharu7/animal-colony-manager",
-  },
-  anchorview: {
-    kind: "VR Tool",
-    title: "AnchorView",
-    text: "VRChatのワールドの決まった場所に、ブラウザで再生している映像を固定して表示するツール。参加者それぞれが自分の画面を同じ場所に置くことで、みんなで一緒に観られます。",
-    stack: "C# / OpenVR / UdonSharp",
-    image: "img/anchorview.svg",
-    imageAlt: "3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示されている図",
-    note: "Demo coming soon",
-  },
-  sodefuri: {
-    kind: "iOS App",
-    title: "sodefuri",
-    text: "すれ違った人と、おすすめの本を交換するアプリ。位置情報を細かく扱わずに「近くにいた人」を判定し、サーバー費用をほぼかけずに動く構成にしています。",
-    stack: "Flutter / Cloudflare Workers",
-    note: "In development",
-  },
-  shiori: {
-    kind: "iOS App",
-    title: "shiori",
-    text: "旅程をタイムラインで見て、地図や乗換案内にすぐ移れるアプリ。旅程は公開の形式で書けるので、AIに作らせることもできます。データは端末とiCloudだけに置きます。",
-    stack: "Swift / iCloud",
-    note: "In development",
-  },
-};
+// 作品の詳細は _data/content.yml から書き出されたものを読む。一覧のボタンの data-work と id を対応させる
+const WORKS = Object.fromEntries(
+  JSON.parse(document.getElementById("works-data").textContent).map((work) => [work.id, work]),
+);
 
 // お問い合わせフォームは、ページを移動せずに送信して結果を表示する
 const form = document.querySelector(".contact-form");
@@ -92,7 +54,7 @@ document.querySelectorAll(".work").forEach((button) => {
     image.hidden = !work.image;
     if (work.image) {
       image.src = work.image;
-      image.alt = work.imageAlt;
+      image.alt = work.image_alt;
     }
     $(".detail-kind").textContent = work.kind;
     $(".detail-title").textContent = work.title;
