@@ -423,8 +423,43 @@ a {
   color: var(--muted);
 }
 
-.about p:last-child {
+.about p:last-of-type {
   margin: 0;
+}
+
+/* 自己紹介の下に並べるSNSへのリンク */
+.sns {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sns a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--paper);
+  text-decoration: none;
+  transition: background var(--smooth);
+}
+
+.sns a:hover {
+  background: var(--accent);
+}
+
+.sns span {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .services {
@@ -557,37 +592,6 @@ a {
   color: #a3503c;
 }
 
-.links {
-  list-style: none;
-  margin: 48px auto 0;
-  padding: 0;
-  max-width: 560px;
-  display: grid;
-}
-
-.links a {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  align-items: center;
-  padding: 14px 8px;
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
-  transition: color var(--smooth);
-}
-
-.links a:hover {
-  color: var(--ink);
-}
-
-.links b {
-  font-family: var(--display);
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.links span {
-  overflow-wrap: anywhere;
-}
 
 .footer {
   padding: 40px 24px;
@@ -740,8 +744,4 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .links a {
-    grid-template-columns: 72px 1fr;
-    padding: 12px 4px;
-  }
 }
