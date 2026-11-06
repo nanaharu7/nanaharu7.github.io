@@ -649,6 +649,11 @@ a {
   color: var(--ink);
 }
 
+/* 開いたときに最初のフォーカスを受けるだけなので、枠は出さない */
+.detail-title:focus {
+  outline: none;
+}
+
 .detail-case h4 {
   margin: 24px 0 6px;
   font-family: var(--display);
