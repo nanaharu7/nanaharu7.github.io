@@ -42,6 +42,22 @@ const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
 
+// ケーススタディ（課題と工夫したこと）を詳細に組み立てる。データに文章を入れても崩れないよう textContent で入れる
+const renderCase = (box, data) => {
+  box.replaceChildren();
+  box.hidden = !data;
+  if (!data) return;
+  const heading = (text) => Object.assign(document.createElement("h4"), { textContent: text });
+  const problem = Object.assign(document.createElement("p"), { textContent: data.problem });
+  const list = document.createElement("ol");
+  for (const point of data.points) {
+    const item = document.createElement("li");
+    item.append(Object.assign(document.createElement("b"), { textContent: point.title }), point.text);
+    list.append(item);
+  }
+  box.append(heading("課題"), problem, heading("工夫したこと"), list);
+};
+
 const dialog = document.getElementById("detail");
 const $ = (selector) => dialog.querySelector(selector);
 
@@ -59,6 +75,7 @@ document.querySelectorAll(".work").forEach((button) => {
     $(".detail-kind").textContent = work.kind;
     $(".detail-title").textContent = work.title;
     $(".detail-text").textContent = work.text;
+    renderCase($(".detail-case"), work.case);
     $(".detail-stack").textContent = work.stack;
     const foot = $(".detail-foot");
     foot.replaceChildren();
