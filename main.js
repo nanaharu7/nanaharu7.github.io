@@ -5,6 +5,8 @@ const WORKS = {
     title: "remind-bot",
     text: "チームで分担したタスクの遅れを、進行管理の人が早めに把握するためのボット。期限が近づくと担当者にDMが届き、ボタンひとつで進捗を報告できます。",
     stack: "TypeScript / Cloudflare Workers / D1",
+    image: "img/remind-bot.svg",
+    imageAlt: "担当者に届いたリマインドで「期限を調整したい」を押すと、進行管理の人にメンション付きで知らせが届く図",
     link: "https://github.com/nanaharu7/remind-bot",
   },
   "animal-colony-manager": {
@@ -19,6 +21,8 @@ const WORKS = {
     title: "AnchorView",
     text: "VRChatのワールドの決まった場所に、ブラウザで再生している映像を固定して表示するツール。参加者それぞれが自分の画面を同じ場所に置くことで、みんなで一緒に観られます。",
     stack: "C# / OpenVR / UdonSharp",
+    image: "img/anchorview.svg",
+    imageAlt: "3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示されている図",
     note: "Demo coming soon",
   },
   sodefuri: {
@@ -45,6 +49,12 @@ if (mailLink) {
   mailLink.querySelector("span").textContent = address;
 }
 
+// スクロールしたらヘッダーに背景をつける
+const header = document.querySelector(".top");
+const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 10);
+window.addEventListener("scroll", updateHeader, { passive: true });
+updateHeader();
+
 const dialog = document.getElementById("detail");
 const $ = (selector) => dialog.querySelector(selector);
 
@@ -53,6 +63,12 @@ document.querySelectorAll(".work").forEach((button) => {
     const work = WORKS[button.dataset.work];
     if (!work) throw new Error(`作品の定義がありません: ${button.dataset.work}`);
 
+    const image = $(".detail-image");
+    image.hidden = !work.image;
+    if (work.image) {
+      image.src = work.image;
+      image.alt = work.imageAlt;
+    }
     $(".detail-kind").textContent = work.kind;
     $(".detail-title").textContent = work.title;
     $(".detail-text").textContent = work.text;

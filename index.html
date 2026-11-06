@@ -7,103 +7,127 @@
   <meta name="description" content="誰かと一緒に何かをするとき、その場を支えるツールを作っています。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <header class="top">
-      <nav class="pill">
-        <a href="#works">WORKS</a>
-        <a href="#profile">PROFILE</a>
+  <header class="top">
+    <div class="top-inner">
+      <a class="logo" href="#">nanaharu</a>
+      <nav class="nav">
+        <a href="#works">Works</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="mail" href="#contact" aria-label="Contact">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.5 7v10h15V7L12 12.2Z"/></svg>
-      </a>
-    </header>
+    </div>
+  </header>
 
+  <main class="container sheet">
     <section class="hero">
-      <p class="hero-name">Nanase Haru<span>七瀬 陽</span></p>
-      <h1 class="catch">「一緒にやる」を、<br>支える道具をつくる。</h1>
-      <p class="hero-lead">チームでの制作、みんなで管理する記録、一緒に観る時間。<br class="pc-only">誰かと一緒に何かをするとき、その場を支えるツールを作っています。</p>
+      <div class="hero-inner">
+        <p class="hero-name">Nanase Haru<span>七瀬 陽</span></p>
+        <h1 class="catch">「一緒にやる」を、<br>支える道具をつくる。</h1>
+        <p class="hero-lead">チームでの制作、みんなで管理する記録、一緒に観る時間。<br class="pc-only">誰かと一緒に何かをするとき、その場を支えるツールを作っています。</p>
+        <div class="cta">
+          <a class="button" href="#works">Works を見る</a>
+          <a class="button outline" href="#contact">お問い合わせ</a>
+        </div>
+      </div>
     </section>
 
     <section id="works" class="section">
-      <h2 class="heading">WORKS<span>作品</span></h2>
+      <h2 class="heading">Works<span>作品</span></h2>
       <ul class="works">
         <li><button class="work" data-work="remind-bot">
-          <span class="no">01</span>
-          <span class="title">remind-bot</span>
-          <span class="summary">チームのタスクの遅れを、早めに共有するDiscordボット</span>
-          <span class="kind">Discord Bot</span>
+          <span class="thumb"><img src="img/remind-bot.svg" alt="" loading="lazy"></span>
+          <span class="work-body">
+            <span class="no">01</span>
+            <span class="kind">Discord Bot</span>
+            <span class="title">remind-bot</span>
+            <span class="summary">チームのタスクの遅れを、早めに共有するDiscordボット</span>
+          </span>
         </button></li>
         <li><button class="work" data-work="animal-colony-manager">
-          <span class="no">02</span>
-          <span class="title">animal-colony-manager</span>
-          <span class="summary">飼育ケージを複数人で記録・管理するWebアプリ</span>
-          <span class="kind">Web App</span>
+          <span class="thumb empty">Image coming soon</span>
+          <span class="work-body">
+            <span class="no">02</span>
+            <span class="kind">Web App</span>
+            <span class="title">animal-colony-manager</span>
+            <span class="summary">飼育ケージを複数人で記録・管理するWebアプリ</span>
+          </span>
         </button></li>
         <li><button class="work" data-work="anchorview">
-          <span class="no">03</span>
-          <span class="title">AnchorView</span>
-          <span class="summary">VRChatで、それぞれの映像を同じ場所に置いて一緒に観る</span>
-          <span class="kind">VR Tool</span>
+          <span class="thumb"><img src="img/anchorview.svg" alt="" loading="lazy"></span>
+          <span class="work-body">
+            <span class="no">03</span>
+            <span class="kind">VR Tool</span>
+            <span class="title">AnchorView</span>
+            <span class="summary">VRChatで、それぞれの映像を同じ場所に置いて一緒に観る</span>
+          </span>
         </button></li>
         <li><button class="work" data-work="sodefuri">
-          <span class="no">04</span>
-          <span class="title">sodefuri</span>
-          <span class="summary">すれ違った人と、おすすめの本を交換する</span>
-          <span class="kind">iOS App<em>In development</em></span>
+          <span class="thumb empty">Image coming soon</span>
+          <span class="work-body">
+            <span class="no">04</span>
+            <span class="kind">iOS App<em>In development</em></span>
+            <span class="title">sodefuri</span>
+            <span class="summary">すれ違った人と、おすすめの本を交換する</span>
+          </span>
         </button></li>
         <li><button class="work" data-work="shiori">
-          <span class="no">05</span>
-          <span class="title">shiori</span>
-          <span class="summary">旅程をタイムラインで見て、地図や乗換案内にすぐ移れる</span>
-          <span class="kind">iOS App<em>In development</em></span>
+          <span class="thumb empty">Image coming soon</span>
+          <span class="work-body">
+            <span class="no">05</span>
+            <span class="kind">iOS App<em>In development</em></span>
+            <span class="title">shiori</span>
+            <span class="summary">旅程をタイムラインで見て、地図や乗換案内にすぐ移れる</span>
+          </span>
         </button></li>
       </ul>
     </section>
 
     <section id="profile" class="section">
-      <h2 class="heading">PROFILE<span>プロフィール</span></h2>
+      <h2 class="heading">Profile<span>プロフィール</span></h2>
       <div class="profile">
-        <div>
-          <h3 class="sub">ABOUT</h3>
-          <!-- アイコンが決まったら .icon を img に差し替える -->
-          <p class="name"><span class="icon" aria-hidden="true">陽</span>七瀬 陽<span class="en">Nanase Haru</span></p>
+        <!-- 仮アイコン。正式なものが決まったら img/icon.svg を差し替える -->
+        <div class="frame"><img class="icon" src="img/icon.svg" alt=""></div>
+        <div class="about">
+          <p class="name">七瀬 陽<span class="en">Nanase Haru</span></p>
           <p>大学で神経科学を研究しながら、身近な場で必要になったものを作ってきました。使う人と話して運用に合わせること、プログラミングに詳しくない人でも迷わず使えることを大切にしています。</p>
-
-          <h3 class="sub">SERVICE</h3>
-          <ul class="rows">
-            <li><b>チームの進行を支える</b><span>タスクの期限や進捗を共有するDiscordボットなど</span></li>
-            <li><b>みんなで使う記録・管理の仕組み</b><span>複数人で記録を共有・管理するWebアプリの開発</span></li>
-            <li><b>一緒に過ごす場のためのツール</b><span>コミュニティの運営支援、VRChatのギミックや外部ツール</span></li>
-          </ul>
         </div>
       </div>
-    </section>
 
-    <section id="contact" class="section">
-      <h2 class="heading">CONTACT<span>お問い合わせ</span></h2>
-      <p>ご依頼・ご相談は、メールかXのDMでお問い合わせください。</p>
-      <ul class="rows links">
-        <!-- 収集ボット対策として、アドレスはHTMLに書かずmain.jsで組み立てる -->
-        <li><a class="js-mail" href="#contact"><b>MAIL</b><span>（表示にはJavaScriptが必要です）</span></a></li>
-        <li><a href="https://x.com/_nanaharu7"><b>X</b><span>@_nanaharu7</span></a></li>
-        <li><a href="https://github.com/nanaharu7"><b>GITHUB</b><span>nanaharu7</span></a></li>
+      <h3 class="sub">Service</h3>
+      <ul class="services">
+        <li><b>チームの進行を支える</b><span>タスクの期限や進捗を共有するDiscordボットなど</span></li>
+        <li><b>みんなで使う記録・管理の仕組み</b><span>複数人で記録を共有・管理するWebアプリの開発</span></li>
+        <li><b>一緒に過ごす場のためのツール</b><span>コミュニティの運営支援、VRChatのギミックや外部ツール</span></li>
       </ul>
     </section>
 
-    <footer class="footer">© 2026 Nanase Haru</footer>
-  </div>
+    <section id="contact" class="section">
+      <h2 class="heading">Contact<span>お問い合わせ</span></h2>
+      <p class="contact-lead">ご依頼・ご相談は、メールかXのDMでお問い合わせください。</p>
+      <ul class="links">
+        <!-- 収集ボット対策として、アドレスはHTMLに書かずmain.jsで組み立てる -->
+        <li><a class="js-mail" href="#contact"><b>Mail</b><span>（表示にはJavaScriptが必要です）</span></a></li>
+        <li><a href="https://x.com/_nanaharu7"><b>X</b><span>@_nanaharu7</span></a></li>
+        <li><a href="https://github.com/nanaharu7"><b>GitHub</b><span>nanaharu7</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Nanase Haru</footer>
 
   <dialog id="detail" class="detail">
+    <img class="detail-image" alt="" hidden>
     <p class="detail-kind"></p>
     <h3 class="detail-title"></h3>
     <p class="detail-text"></p>
     <p class="detail-stack"></p>
     <p class="detail-foot"></p>
-    <button class="close" type="button">× CLOSE</button>
+    <button class="close" type="button">× Close</button>
   </dialog>
 
   <script src="main.js"></script>
