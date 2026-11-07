@@ -628,6 +628,11 @@ a {
   background: #f4efe6;
 }
 
+/* 詳細だけの画像は比率がまちまちなので、切り取らずにそのまま出す */
+.detail-image.poster {
+  aspect-ratio: auto;
+}
+
 .detail-image[hidden] {
   display: none;
 }

@@ -27,6 +27,7 @@ hero:
 # - text: 詳細を開いたときの説明
 # - stack: 使った技術
 # - image / image_alt: 画像のファイルと、その説明（なければ行ごと消す）
+# - detail_image / detail_image_alt: 詳細だけに出す画像と、その説明（なければ一覧と同じ画像を出す）
 # - link: GitHubなどのリンク（なければ note に書いた文字を出す）
 # - case: 詳細に出すケーススタディ（なければ行ごと消す）
 #     problem: どんな困りごとがあったか
@@ -40,6 +41,8 @@ works:
     stack: TypeScript / Cloudflare Workers / D1
     image: img/remind-bot.svg
     image_alt: 担当者に届いたリマインドで「期限を調整したい」を押すと、進行管理の人にメンション付きで知らせが届く図
+    detail_image: img/remind-bot-ad.png
+    detail_image_alt: 「忘れないための通知から、助け合うための通知へ。」という見出しと、担当者に届くDMの見本
     link: https://github.com/nanaharu7/remind-bot
     case:
       problem: チームで作品を作っていると、遅れているタスクほど言い出しにくく、そのままうやむやになってしまうことがありました。担当者が負担なく言い出せることを、いちばんの目標にしました。

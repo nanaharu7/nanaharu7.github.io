@@ -66,11 +66,14 @@ document.querySelectorAll(".work").forEach((button) => {
     const work = WORKS[button.dataset.work];
     if (!work) throw new Error(`作品の定義がありません: ${button.dataset.work}`);
 
+    // 詳細だけの画像があればそちらを出し、なければ一覧と同じ画像を出す
     const image = $(".detail-image");
-    image.hidden = !work.image;
-    if (work.image) {
-      image.src = work.image;
-      image.alt = work.image_alt;
+    const src = work.detail_image ?? work.image;
+    image.hidden = !src;
+    image.classList.toggle("poster", Boolean(work.detail_image));
+    if (src) {
+      image.src = src;
+      image.alt = work.detail_image ? work.detail_image_alt : work.image_alt;
     }
     $(".detail-kind").textContent = work.kind;
     $(".detail-title").textContent = work.title;
