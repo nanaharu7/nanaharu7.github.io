@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-label="公開しているプロンプトでAIに作ってもらった旅程を読み込むと、タイムラインで表示され、地図や乗換案内をワンタップで開ける図">
+  <style>
+    text { font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "BIZ UDPGothic", "Yu Gothic", sans-serif; fill: #4f4640; }
+    .en { font-family: "Outfit", "Segoe UI", "Helvetica Neue", sans-serif; }
+    .muted { fill: #9b8f82; }
+    .white { fill: #fff; }
+    .bold { font-weight: 700; }
+  </style>
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M1 1 L8 5 L1 9" fill="none" stroke="#6b5644" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <symbol id="person" viewBox="0 0 36 36">
+          <circle cx="18" cy="13" r="7" fill="#fff"/>
+          <path d="M6 32 a12 11 0 0 1 24 0Z" fill="#fff"/>
+        </symbol>
+      </defs>
+
+      <rect width="720" height="440" fill="#f4efe6"/>
+
+      <!-- AIに旅程を作ってもらう -->
+      <text x="40" y="44" class="muted" font-size="13">AIに旅程を作ってもらう</text>
+      <rect x="24" y="60" width="272" height="236" rx="18" fill="#fff"/>
+      <!-- 自分の依頼 -->
+      <rect x="92" y="78" width="188" height="64" rx="14" fill="#efe2cf"/>
+      <text x="106" y="102" font-size="12.5">公開しているプロンプト</text>
+      <text x="106" y="124" font-size="12.5">＋ 行き先と日程</text>
+      <!-- AIの返事。旅程のファイルが届く -->
+      <circle cx="56" cy="180" r="18" fill="#6b5644"/>
+      <text x="56" y="185" class="en bold white" font-size="13" text-anchor="middle">AI</text>
+      <rect x="84" y="156" width="196" height="120" rx="14" fill="#f4efe6"/>
+      <text x="100" y="180" font-size="12.5">旅程を作りました。</text>
+      <rect x="100" y="194" width="164" height="64" rx="10" fill="#fff" stroke="#d8cfc2" stroke-width="1.5"/>
+      <path d="M116 208 h16 l8 8 v26 h-24 Z" fill="#cdbfa9"/>
+      <path d="M132 208 v8 h8" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <text x="150" y="226" class="en bold" font-size="13">trip.json</text>
+      <text x="150" y="245" class="muted" font-size="11">旅程のファイル</text>
+
+      <!-- データの置き場所 -->
+      <rect x="24" y="312" width="272" height="100" rx="18" fill="#fff"/>
+      <path d="M66 372 h40 a14 14 0 0 0 0 -28 a20 20 0 0 0 -38 -4 a12 12 0 0 0 -2 32Z" fill="#e3d6c4"/>
+      <text x="128" y="354" font-size="12.5">データは端末と</text>
+      <text x="128" y="374" font-size="12.5">iCloudにだけ保存</text>
+
+      <path d="M302 224 C 330 224, 340 200, 364 196" fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" marker-end="url(#arrow)"/>
+      <text x="330" y="250" class="muted" font-size="12" text-anchor="middle">そのまま</text>
+      <text x="330" y="266" class="muted" font-size="12" text-anchor="middle">読み込む</text>
+
+      <!-- アプリ：タイムラインで見る -->
+      <rect x="372" y="24" width="220" height="392" rx="30" fill="#fff" stroke="#6b5644" stroke-width="2"/>
+      <rect x="450" y="36" width="64" height="8" rx="4" fill="#e6ddd0"/>
+      <text x="392" y="76" class="bold" font-size="15">京都・日帰り</text>
+      <text x="392" y="96" class="muted" font-size="11">タイムライン</text>
+      <path d="M414 118 V392" stroke="#e3d6c4" stroke-width="3" stroke-linecap="round"/>
+      <g font-size="12.5">
+        <circle cx="414" cy="126" r="7" fill="#a88f74"/>
+        <text x="432" y="131" class="en bold" font-size="12">9:00</text><text x="472" y="131">京都駅</text>
+        <!-- 移動：乗換案内と経路 -->
+        <rect x="432" y="146" width="144" height="74" rx="12" fill="#f4efe6"/>
+        <text x="446" y="168" class="muted" font-size="11">電車で移動</text>
+        <rect x="446" y="180" width="54" height="28" rx="8" fill="#a88f74"/><text x="473" y="199" class="white bold" font-size="11.5" text-anchor="middle">乗換</text>
+        <rect x="508" y="180" width="54" height="28" rx="8" fill="#6b5644"/><text x="535" y="199" class="white bold" font-size="11.5" text-anchor="middle">地図</text>
+
+        <circle cx="414" cy="246" r="7" fill="#a88f74"/>
+        <text x="432" y="251" class="en bold" font-size="12">10:00</text><text x="478" y="251">清水寺</text>
+        <rect x="432" y="262" width="144" height="44" rx="12" fill="#f4efe6"/>
+        <rect x="446" y="270" width="54" height="28" rx="8" fill="#6b5644"/><text x="473" y="289" class="white bold" font-size="11.5" text-anchor="middle">地図</text>
+
+        <circle cx="414" cy="332" r="7" fill="#a88f74"/>
+        <text x="432" y="337" class="en bold" font-size="12">12:00</text><text x="478" y="337">お昼ごはん</text>
+        <rect x="432" y="348" width="144" height="44" rx="12" fill="#f4efe6"/>
+        <rect x="446" y="356" width="54" height="28" rx="8" fill="#6b5644"/><text x="473" y="375" class="white bold" font-size="11.5" text-anchor="middle">地図</text>
+      </g>
+
+      <!-- ワンタップで外のアプリへ -->
+      <text x="604" y="128" font-size="12.5">ワンタップで</text>
+      <text x="604" y="148" font-size="12.5">地図・乗換案内へ</text>
+      <path d="M636 166 C 630 182, 600 192, 582 194" fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" marker-end="url(#arrow)"/>
+</svg>

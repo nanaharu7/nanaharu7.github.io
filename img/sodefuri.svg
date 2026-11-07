@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-label="すれ違った2人が、細かい位置ではなく同じおおまかなエリアにいたと判定され、相手のおすすめの本が本棚に届く図">
+  <style>
+    text { font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "BIZ UDPGothic", "Yu Gothic", sans-serif; fill: #4f4640; }
+    .en { font-family: "Outfit", "Segoe UI", "Helvetica Neue", sans-serif; }
+    .muted { fill: #9b8f82; }
+    .white { fill: #fff; }
+    .bold { font-weight: 700; }
+  </style>
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M1 1 L8 5 L1 9" fill="none" stroke="#6b5644" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <!-- 参加者のアイコン（AnchorView の図と同じ） -->
+        <symbol id="person" viewBox="0 0 36 36">
+          <circle cx="18" cy="13" r="7" fill="#fff"/>
+          <path d="M6 32 a12 11 0 0 1 24 0Z" fill="#fff"/>
+        </symbol>
+        <!-- 本の表紙（題名は線で表す） -->
+        <symbol id="book" viewBox="0 0 40 56">
+          <rect width="40" height="56" rx="4" fill="currentColor"/>
+          <rect x="0" y="0" width="6" height="56" rx="3" fill="#000" opacity="0.12"/>
+          <rect x="11" y="12" width="22" height="4" rx="2" fill="#fff" opacity="0.85"/>
+          <rect x="11" y="20" width="15" height="3" rx="1.5" fill="#fff" opacity="0.6"/>
+        </symbol>
+      </defs>
+
+      <rect width="720" height="440" fill="#f4efe6"/>
+
+      <!-- すれ違った2人と、それぞれのおすすめの本 -->
+      <text x="40" y="44" class="muted" font-size="13">おすすめの本を1冊登録</text>
+      <rect x="24" y="60" width="212" height="166" rx="18" fill="#fff"/>
+      <circle cx="64" cy="143" r="20" fill="#a88f74"/><use href="#person" x="44" y="123" width="40" height="40"/>
+      <use href="#book" x="100" y="115" width="40" height="56" style="color:#8f8a6b"/>
+      <text x="152" y="137" font-size="12.5">雨の日に</text>
+      <text x="152" y="155" font-size="12.5">読みたい一冊</text>
+
+      <rect x="24" y="246" width="212" height="166" rx="18" fill="#fff"/>
+      <circle cx="64" cy="329" r="20" fill="#6b5644"/><use href="#person" x="44" y="309" width="40" height="40"/>
+      <use href="#book" x="100" y="301" width="40" height="56" style="color:#c98f52"/>
+      <text x="152" y="323" font-size="12.5">旅先で</text>
+      <text x="152" y="341" font-size="12.5">読み返した本</text>
+
+      <!-- おおまかなエリア（ジオハッシュのセル）。細かい位置は送らない -->
+      <text x="372" y="44" class="muted" font-size="13" text-anchor="middle">同じエリアにいた</text>
+      <g>
+        <rect x="282" y="60" width="180" height="180" rx="18" fill="#fff"/>
+        <g stroke="#e6ddd0" stroke-width="1.5">
+          <path d="M342 60 V240 M402 60 V240 M282 120 H462 M282 180 H462"/>
+        </g>
+        <rect x="342" y="120" width="60" height="60" fill="#efe2cf" stroke="#a88f74" stroke-width="2" stroke-dasharray="5 4"/>
+        <circle cx="360" cy="140" r="9" fill="#a88f74"/>
+        <circle cx="385" cy="160" r="9" fill="#6b5644"/>
+      </g>
+      <text x="372" y="266" class="muted" font-size="12" text-anchor="middle">細かい位置情報は使わない</text>
+
+      <g fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" marker-end="url(#arrow)">
+        <path d="M242 143 C 290 143, 310 140, 334 142"/>
+        <path d="M242 329 C 272 329, 270 196, 334 172"/>
+        <path d="M468 150 L 492 150"/>
+      </g>
+
+      <!-- 相手のおすすめが、自分の本棚に届く -->
+      <text x="516" y="44" class="muted" font-size="13">自分の本棚に届く</text>
+      <rect x="500" y="60" width="196" height="352" rx="28" fill="#fff" stroke="#6b5644" stroke-width="2"/>
+      <rect x="566" y="72" width="64" height="8" rx="4" fill="#e6ddd0"/>
+      <text x="520" y="110" class="bold" font-size="15">本棚</text>
+      <g>
+        <rect x="516" y="124" width="164" height="80" rx="12" fill="#f4efe6"/>
+        <use href="#book" x="528" y="136" width="40" height="56" style="color:#c98f52"/>
+        <rect x="580" y="142" width="84" height="5" rx="2.5" fill="#cdbfa9"/>
+        <rect x="580" y="154" width="60" height="5" rx="2.5" fill="#e3d6c4"/>
+        <text x="580" y="186" class="muted" font-size="11">すれ違った人より</text>
+
+        <rect x="516" y="214" width="164" height="80" rx="12" fill="#f4efe6"/>
+        <use href="#book" x="528" y="226" width="40" height="56" style="color:#a88f74"/>
+        <rect x="580" y="232" width="76" height="5" rx="2.5" fill="#cdbfa9"/>
+        <rect x="580" y="244" width="52" height="5" rx="2.5" fill="#e3d6c4"/>
+        <text x="580" y="276" class="muted" font-size="11">きのうのすれ違い</text>
+      </g>
+      <!-- 届いた本に添えられたひとこと -->
+      <rect x="516" y="306" width="164" height="54" rx="12" fill="#efe2cf"/>
+      <text x="530" y="328" font-size="12">「旅先で読み返した</text>
+      <text x="530" y="347" font-size="12">　本です」</text>
+      <text x="598" y="392" class="muted" font-size="11" text-anchor="middle">ひとことも一緒に</text>
+</svg>

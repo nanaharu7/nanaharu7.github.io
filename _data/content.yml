@@ -96,6 +96,8 @@ works:
     summary: すれ違った人と、おすすめの本を交換する
     text: すれ違った人と、おすすめの本を交換するアプリ。細かい位置情報を使わずに「近くにいた人」を判定し、サーバー費用をほとんどかけずに動かせます。
     stack: Flutter / Cloudflare Workers
+    image: img/sodefuri.svg
+    image_alt: すれ違った2人が、細かい位置ではなく同じおおまかなエリアにいたと判定され、相手のおすすめの本が本棚に届く図
     note: In development
 
   - id: shiori
@@ -105,6 +107,8 @@ works:
     summary: 旅程をタイムラインで見て、地図や乗換案内をすぐ開ける
     text: 旅程をタイムラインで見て、地図や乗換案内をすぐ開けるアプリ。公開しているプロンプトでAIに旅程を作ってもらえば、そのままアプリに読み込めます。データは端末とiCloudにだけ保存されます。
     stack: Swift / iCloud
+    image: img/shiori.svg
+    image_alt: 公開しているプロンプトでAIに作ってもらった旅程を読み込むと、タイムラインで表示され、地図や乗換案内をワンタップで開ける図
     note: In development
 
 # プロフィール
