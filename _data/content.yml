@@ -102,14 +102,17 @@ works:
 profile:
   name: 七瀬 陽
   name_en: Nanase Haru
-  about: 大学で神経科学を研究しながら、身の回りで「これがあったら」と思ったものを作ってきました。作る前に使う人の話を聞き、使い始めてから見えてきたことも、できるだけ取り入れるようにしています。プログラミングに詳しくない人でも、迷わず使えることを大切にしています。
+  about: 大学で神経科学を研究しながら、身の回りで「これがあったら」と思ったものを作ってきました。作る前に使う人の話を聞き、使い始めてから見えてきたことも、できるだけ取り入れるようにしています。プログラミングに詳しくない人でも、迷わず使えることを大切にしています。ときどき、エッセイを書いたり、和歌を詠んだりしています。
   sns:
-    - label: X
-      account: "@_nanaharu7"
-      url: https://x.com/_nanaharu7
     - label: GitHub
       account: nanaharu7
       url: https://github.com/nanaharu7
+    - label: X
+      account: "@_nanaharu7"
+      url: https://x.com/_nanaharu7
+    - label: note
+      account: nanaharu7
+      url: https://note.com/nanaharu7
 
 # できること
 services:
