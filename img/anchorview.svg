@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-label="3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示されている図">
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-label="3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示され、みんなで一緒に観ている図">
   <style>
     text { font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "BIZ UDPGothic", "Yu Gothic", sans-serif; fill: #4f4640; }
     .en { font-family: "Outfit", "Segoe UI", "Helvetica Neue", sans-serif; }
@@ -11,59 +11,62 @@
         <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M1 1 L8 5 L1 9" fill="none" stroke="#6b5644" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
-        <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#ece5d9"/>
-          <stop offset="1" stop-color="#f4efe6"/>
-        </linearGradient>
         <linearGradient id="video" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#d9cbb5"/>
           <stop offset="1" stop-color="#e2cdb8"/>
         </linearGradient>
-        <!-- 小さなブラウザのウィンドウ -->
-        <symbol id="browser" viewBox="0 0 84 58">
-          <rect x="1" y="1" width="82" height="56" rx="8" fill="#fff" stroke="#6b5644" stroke-width="2"/>
-          <circle cx="10" cy="9" r="2.2" fill="#a88f74"/><circle cx="17" cy="9" r="2.2" fill="#cbb48a"/><circle cx="24" cy="9" r="2.2" fill="#cdbfa9"/>
-          <rect x="7" y="16" width="70" height="35" rx="4" fill="url(#video)"/>
-          <path d="M38 27v13l11-6.5Z" fill="#fff"/>
+        <!-- 再生中の映像（ブラウザとスクリーンで同じ絵にして、同じ映像だと分かるようにする） -->
+        <symbol id="movie" viewBox="0 0 160 90">
+          <rect width="160" height="90" rx="8" fill="url(#video)"/>
+          <path d="M0 66 Q 32 46 58 60 T 110 52 T 160 60 V82 a8 8 0 0 1 -8 8 H8 a8 8 0 0 1 -8 -8Z" fill="#fff" opacity="0.45"/>
+          <circle cx="122" cy="26" r="10" fill="#fff" opacity="0.7"/>
+          <rect x="10" y="78" width="140" height="3" rx="1.5" fill="#fff" opacity="0.6"/>
+          <rect x="10" y="78" width="58" height="3" rx="1.5" fill="#fff"/>
+        </symbol>
+        <!-- 参加者のアイコン（remind-bot のボットのアイコンと同じ大きさの丸） -->
+        <symbol id="person" viewBox="0 0 36 36">
+          <circle cx="18" cy="13" r="7" fill="#fff"/>
+          <path d="M6 32 a12 11 0 0 1 24 0Z" fill="#fff"/>
         </symbol>
       </defs>
 
-      <rect width="720" height="440" fill="url(#room)"/>
-      <ellipse cx="360" cy="470" rx="420" ry="120" fill="#e3d9cb"/>
+      <rect width="720" height="440" fill="#f4efe6"/>
 
-      <!-- ワールドのスクリーン -->
-      <text x="360" y="36" class="muted" font-size="13" text-anchor="middle">ワールドのスクリーン</text>
-      <rect x="206" y="50" width="308" height="176" rx="14" fill="#4a3f36"/>
-      <rect x="218" y="62" width="284" height="152" rx="8" fill="url(#video)"/>
-      <path d="M218 178 Q 280 140 330 168 T 430 150 T 502 166 V206 a8 8 0 0 1 -8 8 H226 a8 8 0 0 1 -8 -8Z" fill="#fff" opacity="0.45"/>
-      <circle cx="440" cy="102" r="16" fill="#fff" opacity="0.7"/>
-      <rect x="236" y="196" width="248" height="4" rx="2" fill="#fff" opacity="0.6"/>
-      <rect x="236" y="196" width="104" height="4" rx="2" fill="#fff"/>
+      <!-- それぞれのブラウザ -->
+      <text x="40" y="44" class="muted" font-size="13">それぞれのブラウザで再生</text>
+      <g>
+        <rect x="24" y="60" width="244" height="104" rx="18" fill="#fff"/>
+        <circle cx="62" cy="112" r="18" fill="#a88f74"/><use href="#person" x="44" y="94" width="36" height="36"/>
+        <use href="#movie" x="96" y="74" width="152" height="76"/>
+        <path d="M166 104v16l13-8Z" fill="#fff"/>
 
-      <!-- それぞれのブラウザから、同じ場所へ -->
-      <g fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round">
-        <path d="M150 262 C 170 236, 220 236, 258 226"/>
-        <path d="M360 270 L 360 230"/>
-        <path d="M570 262 C 550 236, 500 236, 462 226"/>
-      </g>
-      <use href="#browser" x="108" y="262" width="84" height="58"/>
-      <use href="#browser" x="318" y="270" width="84" height="58"/>
-      <use href="#browser" x="528" y="262" width="84" height="58"/>
+        <rect x="24" y="176" width="244" height="104" rx="18" fill="#fff"/>
+        <circle cx="62" cy="228" r="18" fill="#6b5644"/><use href="#person" x="44" y="210" width="36" height="36"/>
+        <use href="#movie" x="96" y="190" width="152" height="76"/>
+        <path d="M166 220v16l13-8Z" fill="#fff"/>
 
-      <!-- 並んで観ている3人（後ろ姿） -->
-      <g stroke="#6b5644" stroke-width="2">
-        <ellipse cx="150" cy="430" rx="52" ry="58" fill="#ead9c8"/>
-        <circle cx="150" cy="360" r="30" fill="#ead9c8"/>
-        <ellipse cx="360" cy="440" rx="52" ry="58" fill="#dcd3c4"/>
-        <path d="M336 344 L 330 316 L 352 334 Z M384 344 L 390 316 L 368 334 Z" fill="#dcd3c4" stroke-linejoin="round"/>
-        <circle cx="360" cy="368" r="30" fill="#dcd3c4"/>
-        <ellipse cx="570" cy="430" rx="52" ry="58" fill="#e9dfc6"/>
-        <circle cx="570" cy="360" r="30" fill="#e9dfc6"/>
+        <rect x="24" y="292" width="244" height="104" rx="18" fill="#fff"/>
+        <circle cx="62" cy="344" r="18" fill="#cbb48a"/><use href="#person" x="44" y="326" width="36" height="36"/>
+        <use href="#movie" x="96" y="306" width="152" height="76"/>
+        <path d="M166 336v16l13-8Z" fill="#fff"/>
       </g>
 
-      <!-- 注釈はひと続きの文として左に置き、矢印でスクリーンを指す -->
-      <text x="34" y="112" class="muted" font-size="12">それぞれの</text>
-      <text x="34" y="130" class="muted" font-size="12">ブラウザの映像を、</text>
-      <text x="34" y="148" class="muted" font-size="12">同じ場所に表示</text>
-      <path d="M124 144 C 150 144, 170 140, 194 138" fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" marker-end="url(#arrow)"/>
-    </svg>
+      <!-- 同じ場所へ -->
+      <g fill="none" stroke="#6b5644" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" marker-end="url(#arrow)">
+        <path d="M274 112 C 310 112, 320 140, 348 150"/>
+        <path d="M274 228 C 304 228, 318 212, 348 196"/>
+        <path d="M274 344 C 316 344, 326 270, 350 240"/>
+      </g>
+
+      <!-- ワールドのスクリーンと、並んで観る3人 -->
+      <text x="372" y="44" class="muted" font-size="13">VRChatのワールド</text>
+      <rect x="356" y="60" width="340" height="336" rx="18" fill="#fff"/>
+      <rect x="378" y="84" width="296" height="176" rx="12" fill="#4a3f36"/>
+      <use href="#movie" x="388" y="94" width="276" height="156"/>
+      <text x="526" y="282" class="muted" font-size="12" text-anchor="middle">同じ場所に表示</text>
+
+      <circle cx="456" cy="334" r="22" fill="#a88f74"/><use href="#person" x="434" y="312" width="44" height="44"/>
+      <circle cx="526" cy="334" r="22" fill="#6b5644"/><use href="#person" x="504" y="312" width="44" height="44"/>
+      <circle cx="596" cy="334" r="22" fill="#cbb48a"/><use href="#person" x="574" y="312" width="44" height="44"/>
+      <text x="526" y="380" font-size="12.5" text-anchor="middle">みんなで一緒に観る</text>
+</svg>

@@ -84,7 +84,9 @@ works:
     text: ブラウザで再生している映像を、VRChatのワールドの決まった場所に映すツール。参加者がそれぞれ自分の画面を同じ場所に映すことで、みんなで一緒に観られます。
     stack: C# / OpenVR / UdonSharp
     image: img/anchorview.svg
-    image_alt: 3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示されている図
+    image_alt: 3人がそれぞれのブラウザで再生している映像が、ワールドの同じスクリーンに表示され、みんなで一緒に観ている図
+    detail_image: img/anchorview-ad.png
+    detail_image_alt: 「それぞれの画面を、同じ場所で一緒に。」という見出しと、AnchorViewの設定画面（再生・一時停止、全画面の切り替え、表示倍率、正面に配置）
     note: Demo coming soon
 
   - id: sodefuri
