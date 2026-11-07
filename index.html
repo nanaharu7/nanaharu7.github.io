@@ -9,6 +9,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ c.hero.name_en }} | {{ c.hero.name_ja }}</title>
   <meta name="description" content="{{ c.hero.lead | last | escape }}">
+  <!-- URLをSNSに貼ったときのカード表示 -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nanaharu7.github.io/">
+  <meta property="og:title" content="{{ c.hero.name_en }} | {{ c.hero.name_ja }}">
+  <meta property="og:description" content="{{ c.hero.lead | last | escape }}">
+  <meta property="og:image" content="https://nanaharu7.github.io/img/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
