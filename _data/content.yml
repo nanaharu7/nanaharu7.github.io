@@ -142,12 +142,13 @@ profile:
     - label: GitHub
       account: nanaharu7
       url: https://github.com/nanaharu7
-    - label: X
-      account: "@_nanaharu7"
-      url: https://x.com/_nanaharu7
-    - label: note
-      account: nanaharu7
-      url: https://note.com/nanaharu7
+    # XとnoteはまだSNSとして動かしていないので外している。使い始めたら、行頭の「# 」を消して戻す
+    # - label: X
+    #   account: "@_nanaharu7"
+    #   url: https://x.com/_nanaharu7
+    # - label: note
+    #   account: nanaharu7
+    #   url: https://note.com/nanaharu7
 
 # できること
 services:
